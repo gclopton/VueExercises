@@ -6,9 +6,19 @@
 </head>
 <body>
     <div id="root">
-        <input type="text" id="input" v-model="message">
+        <input type="text" v-model="message">
+        <p>The value of the input is: {{message }}</p>
     </div>
-    <p>The value of the input is: {{message }}</p>
+
+    <div id="root2">
+        <ul>
+            <li v-for="name in names" v-text="name"></li>
+        </ul>
+    </div>
+    <input id="input"  type="text">
+    <button id="button">Add Name</button>
+
+<!--<script src="vue.min.js"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 <script>
     let data ={
@@ -16,9 +26,22 @@
     };
     new Vue({
         el: '#root',
-        data:data
+        data: data
     })
-</script>
 
+    var app = new Vue({
+        el: '#root2',
+        data:{
+            names:['Joe', 'Mary', 'Jane', 'Jack']
+        },
+        mounted(){
+            document.querySelector('#button').addEventListener('click',()=> {
+                let name = document.querySelector('#input');
+                app.names.push(name.value);
+                name.value='';
+            });
+        }
+    });
+</script>
 </body>
 </html>
