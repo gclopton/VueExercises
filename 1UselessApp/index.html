@@ -7,7 +7,7 @@
 <body>
     <div id="root">
         <input type="text" v-model="message">
-        <p>The value of the input is: {{message }}</p>
+        <p>The input field wants me to tell you ... {{message }}</p>
     </div>
 
     <div id="root2">
@@ -22,7 +22,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 <script>
     let data ={
-        message: 'Hello World'
+        message: 'Hey There!'
     };
     new Vue({
         el: '#root',
@@ -32,7 +32,7 @@
     var app = new Vue({
         el: '#root2',
         data:{
-            names:['Joe', 'Mary', 'Jane', 'Jack']
+            names:['Joe', 'Mary', 'Jane', 'Jack', 'Jerry-Joe-Jackson']
         },
         mounted(){
             document.querySelector('#button').addEventListener('click',()=> {
